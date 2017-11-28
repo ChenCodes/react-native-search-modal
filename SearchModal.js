@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, Text, TouchableHighlight, TouchableOpacity, ListView, Modal, TextInput} from 'react-native';
+import {View, Text, TouchableHighlight, TouchableOpacity, ListView, Modal, TextInput, Dimensions} from 'react-native';
 import Button from './Button';
 
 class SearchModal extends Component {
@@ -8,7 +8,7 @@ class SearchModal extends Component {
         this.state = {
             dataSource: ds.cloneWithRows(this.props.data),
             selectedValue : null,
-            selectedText : null,
+            selectedText : 'Assign User',
             modalVisible : false,
             searchText : ''
         };
@@ -127,9 +127,11 @@ const styles = {
         paddingHorizontal : 15
     },
     inputStyle: {
-        paddingRight: 5,
-        paddingLeft: 5,
-        flex: 2
+        flex: 1,
+        borderColor: 'green',
+        borderWidth: 1,
+        borderRadius: 3,
+        alignItems: 'center',
     },
     labelStyle: {
         fontSize: 13,
@@ -150,13 +152,13 @@ const styles = {
     },
     modalBoxStyle : {
         backgroundColor: '#ffffff',
-        height: 500,
-        width: 300,
+        height: Dimensions.get('window').height - 50,
+        width: Dimensions.get('window').width - 50,
         borderRadius: 6,
         paddingVertical: 5
     },
     searchStyle : {
-        height: 40,
+        height: 30,
         borderColor: '#ccc',
         borderWidth: 1,
         marginHorizontal: 5,
